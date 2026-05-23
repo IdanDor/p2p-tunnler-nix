@@ -26,6 +26,8 @@
     jsoncpp.dev
     http-parser
     simdutf
+    # for auditing the cargo stuff.
+    cargo-audit
   ];
 
   # https://devenv.sh/languages/
