@@ -28,6 +28,8 @@
     simdutf
     # for auditing the cargo stuff.
     cargo-audit
+    # For building
+    crate2nix
   ];
 
   # https://devenv.sh/languages/
