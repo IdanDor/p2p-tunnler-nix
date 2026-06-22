@@ -9,7 +9,7 @@ let
     owner = "IdanDor";
     repo = "p2p-tunnler";
     rev = "master";
-    hash = "sha256-QnTAVZlOZexf8Y49Ct5Z1Xlm0gtMRj4oteicqXcX+qI="; 
+    hash = "sha256-8himOnBQEnhvvt3tXlH2EzvrfBF6qv1YOH5rj0xW1vM=";
   };
 
   customBuildRustCrateForPkgs = pkgs: pkgs.buildRustCrate.override {
