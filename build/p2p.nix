@@ -1,4 +1,4 @@
-# Run nix-build build3.nix
+# Build with: nix-build default.nix
 
 { pkgs ? import <nixpkgs> {} }:
 
@@ -8,18 +8,17 @@ let
   p2p-tunnler = pkgs.fetchFromGitHub {
     owner = "IdanDor";
     repo = "p2p-tunnler";
-    rev = "master";
-    hash = "sha256-vEyVHRLaQWcPuCj+i6kw2lFXuqiGOnB5hoW6nyVi24w=";
+    rev = "170f628847a20e8efd9eddac649af7bd7f46f3c2";
+    hash = "sha256-gapS6qAt+2l4ezGwtWntsoi+MrnuOHo3XkvfzbETUkw=";
   };
 
   customBuildRustCrateForPkgs = pkgs: pkgs.buildRustCrate.override {
     defaultCrateOverrides = pkgs.defaultCrateOverrides // {
       opendht = attrs: {
-        # This means build time, unlike buildInputs which is runtime.
+        # The Rust wrapper links against the OpenDHT C++ library.
+        nativeBuildInputs = [ pkgs.pkg-config ];
         buildInputs = [
           opendht
-          pkgs.pkg-config  # required for lookup.
-          # required by opendht
           pkgs.gnutls
           pkgs.msgpack-cxx
           pkgs.fmt.dev
@@ -27,6 +26,7 @@ let
         PKG_CONFIG_PATH = "${opendht}/lib/pkgconfig";
       };
       p2p-tunnler = attrs: {
+        # Native libraries used by the OpenDHT wrapper at final link time.
         buildInputs = [
           pkgs.fmt.dev
           pkgs.openssl.dev
@@ -39,7 +39,7 @@ let
       };
     };
   };
-  # Generate from devenv shell using: `crate2nix generate` in ./wireguard-p2p
+  # Cargo.nix is generated from p2p-tunnler's Cargo.lock with crate2nix.
   crate = pkgs.callPackage "${p2p-tunnler}/Cargo.nix" {
     buildRustCrateForPkgs = customBuildRustCrateForPkgs;
   };

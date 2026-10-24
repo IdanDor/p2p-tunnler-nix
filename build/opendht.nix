@@ -1,26 +1,24 @@
 { pkgs ? import <nixpkgs> {} }:
 
-pkgs.stdenv.mkDerivation rec {
+pkgs.stdenv.mkDerivation {
   pname = "opendht";
-  # version = "3.5.8";
-  version = "3.7.1";
+  version = "3.7.8";
 
   src = pkgs.fetchFromGitHub {
     owner = "savoirfairelinux";
-    repo = "${pname}";
-    rev = "v${version}"; # Can be a tag or a specific commit hash
-    hash = "sha256-AyuSl87qKqer4pid+oXLTszVwOrpQZf9B4DG/UuVFaA="; 
-  };  # Path to your source code containing CMakeLists.txt
+    repo = "opendht";
+    rev = "c020d2e1ef730c076b172020f87195d261208489";
+    hash = "sha256-LoM+5oinx2QDRMmcRx3HHvuW8maqsds2va2WwSUFPlw=";
+  };
   
   # Tools required at build time (like compilers and build systems)
-  nativeBuildInputs = [ 
+  nativeBuildInputs = [
     pkgs.cmake
-    pkgs.pkg-config # Often needed for finding libraries
+    pkgs.pkg-config
     pkgs.ninja
   ];
-  
-  # Libraries needed at runtime and link time
-  buildInputs = with pkgs; [ 
+
+  buildInputs = with pkgs; [
     boost
     libargon2
     asio
@@ -29,7 +27,7 @@ pkgs.stdenv.mkDerivation rec {
     nettle
     gnutls
   ];
-  
+
   cmakeFlags = [
     "-DCMAKE_INSTALL_LIBDIR=lib"
     "-DOPENDHT_C=ON"
@@ -39,6 +37,6 @@ pkgs.stdenv.mkDerivation rec {
     "-DOPENDHT_TOOLS=OFF"
     "-DBUILD_TESTING=OFF"
   ];
-  
+
   cmakeBuildType = "MinSizeRel";
 }
