@@ -24,7 +24,7 @@
       },
       "locked": {
         "lastModified": 1794064800,
-        "narHash": "sha256-aSBeUcIpEL1LeQ2Fv/+mNHTsJ+CO3miC2C7DXXT19nM=",
+        "narHash": "sha256-6dAJzouXHESNiVOGP7x2KQ8cQglUI+neq6CJDt5QGAg=",
         "owner": "IdanDor",
         "repo": "p2p-tunnler",
         "rev": "ed2802252c15afeb3a4adcda1b4ffe2d2ea3b3af",
