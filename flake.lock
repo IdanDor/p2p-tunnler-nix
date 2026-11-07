@@ -23,11 +23,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794051612,
-        "narHash": "sha256-uzbKU5u66PN/+43kBSX8DFK+NBffZImkSSyuXcNebpg=",
+        "lastModified": 1794064800,
+        "narHash": "sha256-aSBeUcIpEL1LeQ2Fv/+mNHTsJ+CO3miC2C7DXXT19nM=",
         "owner": "IdanDor",
         "repo": "p2p-tunnler",
-        "rev": "3761e4c9b38c91c685c6c1236be0a90b72b83940",
+        "rev": "ed2802252c15afeb3a4adcda1b4ffe2d2ea3b3af",
         "type": "github"
       },
       "original": {

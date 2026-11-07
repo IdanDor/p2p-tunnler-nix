@@ -48,15 +48,3 @@ nix flake check --no-write-lock-file \
 The existing OpenDHT and Rust-wrapper gitlinks are retained for development;
 Cargo.lock/Cargo.nix and the OpenDHT recipe pin the actual package dependencies.
 Flake builds do not recursively initialize these submodules.
-
-For the legacy `nix-build default.nix` and `nix-build build.nix` entrypoints,
-initialize the source submodule first:
-
-```sh
-git submodule update --init p2p-tunnler
-nix-build default.nix
-```
-
-The compatibility Nix files delegate to that submodule's recipes. Updating the
-submodule to a different commit changes those legacy builds; flake builds always
-use the source revision in flake.lock. Do not update either lock accidentally.

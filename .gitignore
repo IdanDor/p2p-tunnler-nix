@@ -10,5 +10,5 @@ devenv.lock
 # pre-commit
 .pre-commit-config.yaml
 
-# nix-build
+# Nix build output
 result
