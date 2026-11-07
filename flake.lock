@@ -1,0 +1,49 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1793341285,
+        "narHash": "sha256-Y1CiZ4SoBUjLQyQM/pY+rS2dXD3CHLPstF0lmOc73D4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1c89083e451e891152365b799595cf7790a43325",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "p2p-tunnler": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794051612,
+        "narHash": "sha256-uzbKU5u66PN/+43kBSX8DFK+NBffZImkSSyuXcNebpg=",
+        "owner": "IdanDor",
+        "repo": "p2p-tunnler",
+        "rev": "3761e4c9b38c91c685c6c1236be0a90b72b83940",
+        "type": "github"
+      },
+      "original": {
+        "owner": "IdanDor",
+        "ref": "master",
+        "repo": "p2p-tunnler",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "p2p-tunnler": "p2p-tunnler"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
